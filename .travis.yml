@@ -2,11 +2,16 @@ language: node_js
 node_js:
   - "10.15.3"
 sudo: required
-branches:
-  only:
-  - master
-  - develop
 before_script:
   - npm install -g @angular/cli
 script:
 - ng lint
+- ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: dist/test-angular-app
+  on:
+    branch: master
