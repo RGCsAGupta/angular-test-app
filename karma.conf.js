@@ -19,7 +19,7 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/test-angular-app'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
-        thresholds: {
+      thresholds: {
         statements: 80,
         lines: 80,
         branches: 80,
@@ -32,7 +32,14 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      },
+    },
     singleRun: false,
     restartOnFileChange: true
   });
 };
+

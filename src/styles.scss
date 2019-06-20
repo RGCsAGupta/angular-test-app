@@ -1,1 +1,207 @@
-/* You can add global styles to this file, and also import other style files */
+$theme-colors: (primary: #ffde03,
+  primary-light: #ffff54,
+  primary-dark: #c7ad00,
+  secondary: #0336ff,
+  secondary-light: #6f63ff,
+  secondary-dark: #0008ca,
+  primary-text: #000000,
+  secondary-text: #ffffff,
+  background:#EEEEEE,
+  background-light:#ffffff,
+  background-dark:#811b1b,
+  background-text:#000000);
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  &:focus{
+	outline: #0336ff;
+  }
+}
+
+html,
+body,
+footer,
+.root {
+  display: unset;
+  height: 100%;
+  width: 100%;
+  background-color: map-get($map: $theme-colors, $key: "background-dark");
+  color: map-get($map: $theme-colors, $key: "background-text");
+  font-family: Roboto;
+}
+
+.root {
+  display: grid;
+
+  @media screen and (max-width: 600px) {
+    grid-template-areas:
+      "logo"
+      "nav"
+      "content"
+      "footer";
+  }
+
+  @media screen and (min-width: 600px)and (max-width: 1200px) {
+    grid-template-areas:
+      "logo nav nav"
+      "lsidebar content content"
+      "footer footer footer";
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-areas:
+      "logo logo nav nav nav"
+      "lsidebar content content content rsidebar"
+      "footer footer footer footer footer";
+  }
+
+
+  justify-items: center;
+
+  &__nav,
+  &__footer,
+  &__logo {
+    background-color: map-get($map: $theme-colors, $key: "primary");
+    color: map-get($map: $theme-colors, $key: "primary-text");
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+	font-size: x-large;
+	flex-wrap: wrap;
+  }
+
+  &__logo {
+    justify-content: center;
+    grid-area: logo;
+  }
+
+  &__nav {
+    grid-area: nav;
+    justify-content: space-around;
+
+    &__a {
+      border-bottom: solid 5px transparent;
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &.active {
+        border-bottom: solid 5px map-get($map: $theme-colors, $key: "primary-dark");
+        outline: none;
+      }
+    }
+
+  }
+
+
+  &__footer {
+    grid-area: footer;
+    justify-content: center;
+  }
+
+  &__sidebar,
+  ap-home {
+    width: 100%;
+  }
+
+  app-home {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10px;
+    grid-area: content;
+    // text-align: justify;
+    background-color: map-get($map: $theme-colors, $key: "background-light");
+    color: map-get($map: $theme-colors, $key: "background-text");
+  }
+
+
+  &__sidebar {
+    min-width: 120px;
+    display: flex;
+    background-color: map-get($map: $theme-colors, $key: "background");
+    color: map-get($map: $theme-colors, $key: "background-text");
+  }
+
+  &__sidebar.left {
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
+    grid-area: lsidebar;
+  }
+
+  &__sidebar.right {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+
+    grid-area: rsidebar;
+  }
+
+
+
+  .btn {
+    margin: 10px;
+    padding: 10px;
+    color: map-get($map: $theme-colors, $key: "primary-text");
+    border-radius: 10%;
+    width: 100px;
+
+    &:hover,
+    &:focus {
+      border-color: #000000;
+      outline: none;
+    }
+  }
+
+  .tooltip {
+    position: relative;
+
+    .tooltip__text {
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      margin-left: -60px;
+
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+
+      }
+
+    }
+
+    .tooltip__text.top {
+      bottom: 100%;
+
+      &:after {
+        top: 100%;
+        border-color: black transparent transparent transparent;
+      }
+    }
+
+    .tooltip__text.bottom {
+      top: 100%;
+
+      &:after {
+        bottom: 100%;
+        border-color: transparent transparent black transparent;
+      }
+    }
+  }
+
+}
