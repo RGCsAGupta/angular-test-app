@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
+## Live demo
+Visit [live serve](https://link)to see a demo  https://cexagupta.github.io/angular-test-app/
+
+## Travis builds [![Build Status](https://travis-ci.com/CExAGupta/angular-test-app.svg?branch=master)](https://travis-ci.com/CExAGupta/angular-test-app)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
