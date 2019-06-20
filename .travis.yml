@@ -6,8 +6,9 @@ sudo: required
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint
-- ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
+- npm lint
+- npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+- npm build --prod --base-href https://cexagupta.github.io/angular-test-app/
 deploy:
   provider: pages
   skip_cleanup: true
