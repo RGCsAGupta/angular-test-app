@@ -5,10 +5,12 @@ dist: "trusty"
 sudo: required
 before_script:
   - npm install -g @angular/cli
+ 
 script:
-- ng lint
-- ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
-deploy:
+  - npm run lint
+  - npm run test
+  - npm build --prod --base-href https://cexagupta.github.io/angular-test-app/
+ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
