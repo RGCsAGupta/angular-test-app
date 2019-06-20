@@ -4,7 +4,6 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'test', redirectTo: '/coverage/test-angular-app', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
