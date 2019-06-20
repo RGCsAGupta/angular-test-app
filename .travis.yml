@@ -1,15 +1,28 @@
+dist: trusty
+sudo: false
+ 
 language: node_js
 node_js:
-  - "10.15.3"
-dist: "trusty"
-sudo: required
-before_script:
-  - npm install -g @angular/cli
+  - "8"
+  
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+ 
+cache:
+  directories:
+     - ./node_modules
+ 
+install:
+  - npm install
+ 
 script:
-- npm lint
-- npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-- npm build --prod --base-href https://cexagupta.github.io/angular-test-app/
-deploy:
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - npm build --prod --base-href https://cexagupta.github.io/angular-test-app/
+ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
