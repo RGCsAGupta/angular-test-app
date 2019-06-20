@@ -3,12 +3,18 @@ node_js:
   - "10.15.3"
 dist: "trusty"
 sudo: required
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 before_script:
   - npm install -g @angular/cli
 script:
-- npm lint
-- npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-- npm build --prod --base-href https://cexagupta.github.io/angular-test-app/
+  - ng lint
+  - ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
 deploy:
   provider: pages
   skip_cleanup: true
