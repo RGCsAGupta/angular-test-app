@@ -1,51 +1,50 @@
-import { Component, Input, AfterViewInit, HostListener, ViewEncapsulation, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, HostListener, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state/state.service';
 
 @Component({
-	selector: 'app-tooltip',
-	templateUrl: './tooltip.component.html',
-	styleUrls: ['./tooltip.component.scss']
+  selector: 'app-tooltip',
+  templateUrl: './tooltip.component.html',
+  styleUrls: ['./tooltip.component.scss']
 })
 export class TooltipComponent implements OnInit {
-	ngOnInit(): void {
-		this.resetOrientation();
-	}
-	@Input() text: string;
-	constructor(private _elementRef: ElementRef, private _stateService: StateService) {
-		(<HTMLElement>this._elementRef.nativeElement).classList.add('tooltip__text');
-	}
+  @Input() text: string;
+  constructor(private elementRef: ElementRef, private stateService: StateService) {
+    (this.elementRef.nativeElement as HTMLElement).classList.add('tooltip__text');
+  }
 
-	@HostListener('document:keyup', ['$event']) keyUp(event: KeyboardEvent): void {
-		if (event.code === 'Escape') {
-			event.stopPropagation();
-			this._hide();
-		}
-	}
-	@HostListener('document:click', ['$event']) onClickOutside(event: MouseEvent): void {
-		if (!this._elementRef.nativeElement.contains(event.target)) {
-			event.stopPropagation();
-			this._hide();
-		}
-	}
+  ngOnInit(): void {
+    this.resetOrientation();
+  }
+  @HostListener('document:keyup', ['$event']) keyUp(event: KeyboardEvent): void {
+    if (event.code === 'Escape') {
+      event.stopPropagation();
+      this._hide();
+    }
+  }
+  @HostListener('document:click', ['$event']) onClickOutside(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      event.stopPropagation();
+      this._hide();
+    }
+  }
 
-	@HostListener('document:scroll') onScroll(): void {
-			this.resetOrientation();
-	}
-	private resetOrientation(): void {
-		if (this._elementRef) {
-			const { top, height } = this._elementRef.nativeElement.getBoundingClientRect();
-			if (top < (height + 100)) {
-				(<HTMLElement>this._elementRef.nativeElement).classList.remove('top');
-				(<HTMLElement>this._elementRef.nativeElement).classList.add('bottom');
-			}
-			else {
-				(<HTMLElement>this._elementRef.nativeElement).classList.remove('bottom');
-				(<HTMLElement>this._elementRef.nativeElement).classList.add('top');
-			}
-		}
-	}
+  @HostListener('document:scroll') onScroll(): void {
+    this.resetOrientation();
+  }
+  private resetOrientation(): void {
+    if (this.elementRef) {
+      const { top, height } = this.elementRef.nativeElement.getBoundingClientRect();
+      if (top < (height + 100)) {
+        (this.elementRef.nativeElement as HTMLElement).classList.remove('top');
+        (this.elementRef.nativeElement as HTMLElement).classList.add('bottom');
+      } else {
+        (this.elementRef.nativeElement as HTMLElement).classList.remove('bottom');
+        (this.elementRef.nativeElement as HTMLElement).classList.add('top');
+      }
+    }
+  }
 
-	private _hide(): void {
-		this._stateService.updateState(null);
-	}
+  private _hide(): void {
+    this.stateService.updateState(null);
+  }
 }

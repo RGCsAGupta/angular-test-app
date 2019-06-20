@@ -8,20 +8,20 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		TooltipDirective,
-		TooltipComponent,
-		HomeComponent
-	],
-	entryComponents: [
-		TooltipComponent
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    TooltipDirective,
+    TooltipComponent,
+    HomeComponent
+  ],
+  entryComponents: [
+    TooltipComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
