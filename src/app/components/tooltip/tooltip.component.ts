@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef, HostListener, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state/state.service';
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-tooltip',
