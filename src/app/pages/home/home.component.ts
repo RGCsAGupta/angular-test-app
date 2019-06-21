@@ -6,5 +6,5 @@ import { lorem } from 'faker';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  fakeParagraph: string = lorem.words(500);
+  fakeParagraph: string = lorem.words(900);
 }
