@@ -1,5 +1,6 @@
 import { Component, Input, ElementRef, HostListener, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state/state.service';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-tooltip',
@@ -10,6 +11,7 @@ export class TooltipComponent implements OnInit {
   @Input() text: string;
   constructor(private elementRef: ElementRef, private stateService: StateService) {
     (this.elementRef.nativeElement as HTMLElement).classList.add('tooltip__text');
+    this.resetOrientation = _.throttle(this.resetOrientation, 250);
   }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class TooltipComponent implements OnInit {
   private resetOrientation(): void {
     if (this.elementRef) {
       const { top, height } = this.elementRef.nativeElement.getBoundingClientRect();
-      if (top < (height + 100)) {
+      if (top < (height + 40)) {
         (this.elementRef.nativeElement as HTMLElement).classList.remove('top');
         (this.elementRef.nativeElement as HTMLElement).classList.add('bottom');
       } else {
