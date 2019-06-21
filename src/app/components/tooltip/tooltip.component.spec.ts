@@ -60,8 +60,12 @@ describe('TooltipComponent', () => {
       height: 10
     });
     component.onScroll();
-    fixture.detectChanges();
-    expect((fixture.debugElement.nativeElement as HTMLElement).classList.contains('top')).toBeTruthy();
+    await new Promise(resolve => setTimeout(() => {
+      component.onScroll();
+      fixture.detectChanges();
+      expect((fixture.debugElement.nativeElement as HTMLElement).classList.contains('top')).toBeTruthy();
+      resolve();
+    }, 400));
   });
   it('Test document:scroll event handler tooltip bellow', async () => {
     fixture.debugElement.nativeElement.getBoundingClientRect = () => ({
@@ -69,7 +73,11 @@ describe('TooltipComponent', () => {
       height: 10
     });
     component.onScroll();
-    fixture.detectChanges();
-    expect((fixture.debugElement.nativeElement as HTMLElement).classList.contains('bottom')).toBeTruthy();
+    await new Promise(resolve => setTimeout(() => {
+      component.onScroll();
+      fixture.detectChanges();
+      expect((fixture.debugElement.nativeElement as HTMLElement).classList.contains('bottom')).toBeTruthy();
+      resolve();
+    }, 400));
   });
 });
