@@ -1,32 +1,52 @@
 # TestAngularApp
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
+- one view/state
+- on the main view there are two buttons
+- when clicked shows tooltip above the button with some text in it.
+  - When button A is clicked, if button B’s tooltip is open it should close and vice versa - only one tooltip should be visible at a time. 
+  - Either tooltip closes when clicked anywhere outside of it, but remain open if clicked inside
+  - Either tooltip closes when ESC key is pressed.
+  - If you scroll down to an open tooltip it detects being at the edge of the screen and change position to be below the button
+- At least one accessibility feature
+  - Added aria properties
+  - Color contrast
+- Responsive design
+  - layout changes when the app resizes
+## Implementation
+-  Tooltip functionality is written as a reusable directive.
+-  Style using SCSS BEM
+
+
 ## Live demo
-Visit [live serve](https://link)to see a demo  https://cexagupta.github.io/angular-test-app/
+Visit [live serve](https://cexagupta.github.io/angular-test-app/)to see a demo
 
 ## Travis builds [![Build Status](https://travis-ci.com/CExAGupta/angular-test-app.svg?branch=master)](https://travis-ci.com/CExAGupta/angular-test-app)
-
+## Test Coverage
+visit the [live serve](https://cexagupta.github.io/angular-test-app-test-coverage/) for test coverage
+## Installation
+### Cloning the repository
+```bash
+$ git clone git@github.com:CExAGupta/angular-test-app.git
+```
+## Installing node_modules
+```bash
+$ cd angular-test-app
+$ npm install -g @angular/cli
+$ npm install
+```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+$ npm serve
+```
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
