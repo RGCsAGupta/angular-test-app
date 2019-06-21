@@ -1,5 +1,5 @@
 TN:
-SF:/Users/agupta/test/test-angular-app/src/polyfills.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/polyfills.ts
 FNF:0
 FNH:0
 LF:0
@@ -8,7 +8,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/test.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/test.ts
 FNF:0
 FNH:0
 DA:13,1
@@ -20,7 +20,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/app/app.component.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/app/app.component.ts
 FNF:0
 FNH:0
 DA:8,1
@@ -30,7 +30,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/app/components/tooltip/tooltip.component.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/app/components/tooltip/tooltip.component.ts
 FN:11,(anonymous_0)
 FN:15,(anonymous_1)
 FN:18,(anonymous_2)
@@ -84,7 +84,7 @@ BRF:8
 BRH:7
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/app/directives/tooltip/tooltip.directive.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/app/directives/tooltip/tooltip.directive.ts
 FN:26,(anonymous_0)
 FN:21,(anonymous_1)
 FN:33,(anonymous_2)
@@ -127,7 +127,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/app/pages/home/home.component.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/app/pages/home/home.component.ts
 FN:3,(anonymous_0)
 FNF:1
 FNH:1
@@ -140,7 +140,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/agupta/test/test-angular-app/src/app/services/state/state.service.ts
+SF:/home/travis/build/CExAGupta/angular-test-app/src/app/services/state/state.service.ts
 FN:4,(anonymous_0)
 FN:15,(anonymous_1)
 FN:19,(anonymous_2)
