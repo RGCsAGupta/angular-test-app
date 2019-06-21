@@ -16,12 +16,24 @@ install:
 script:
   - ng lint
   - ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
+after_success:
+  - if [ $TRAVIS_BRANCH = 'master' ]; ng build --prod --base-href https://cexagupta.github.io/angular-test-app/
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  local_dir: dist/test-angular-app
-  on:
-    branch: master
+  # deploy develop's test results 
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    local_dir: coverage/test-angular-app
+    repo: CExAGupta/angular-test-app-test-coverage
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    local_dir: dist/test-angular-app
+    repo: CExAGupta/angular-test-app
+    on:
+      branch: master
