@@ -24,6 +24,10 @@ Visit [live serve](https://cexagupta.github.io/angular-test-app/)to see a demo
 ## Travis builds [![Build Status](https://travis-ci.com/CExAGupta/angular-test-app.svg?branch=master)](https://travis-ci.com/CExAGupta/angular-test-app)
 ## Test Coverage
 visit the [live serve](https://cexagupta.github.io/angular-test-app-test-coverage/) for test coverage
+## Test results
+![test result](/test&#32;result.png)
+## Accessibility test results
+![accessibility](/accessibility.png)
 ## Installation
 ### Cloning the repository
 ```bash
