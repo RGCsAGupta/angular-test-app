@@ -6,13 +6,13 @@ describe('StateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: StateService = TestBed.get(StateService);
+    const service: StateService = TestBed.inject(StateService);
     expect(service).toBeTruthy();
   });
 
   it('#state should return value from observable',
     (done: DoneFn) => {
-      const service: StateService = TestBed.get(StateService);
+      const service: StateService = TestBed.inject(StateService);
       service.updateState('observable value');
       service.updateState('observable value1');
       service.state.subscribe(value => {
