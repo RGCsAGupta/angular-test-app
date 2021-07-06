@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TooltipComponent } from './tooltip.component';
 import { StateService } from 'src/app/services/state/state.service';
@@ -8,7 +8,7 @@ describe('TooltipComponent', () => {
   let fixture: ComponentFixture<TooltipComponent>;
   let testBedService: StateService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TooltipComponent],
       providers: [StateService],
@@ -21,7 +21,7 @@ describe('TooltipComponent', () => {
     component = fixture.componentInstance;
     component.text = 'test Tooltip';
     fixture.detectChanges();
-    testBedService = TestBed.get(StateService);
+    testBedService = TestBed.inject(StateService);
   });
 
   it('should create', () => {

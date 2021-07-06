@@ -36,7 +36,7 @@ describe('TooltipDirective', () => {
     }).overrideModule(BrowserDynamicTestingModule, { set: { entryComponents: [TooltipComponent], declarations: [] } });
 
     fixture = TestBed.createComponent(TestComponent);
-    testBedService = TestBed.get(StateService);
+    testBedService = TestBed.inject(StateService);
     fixture.detectChanges();
   });
   it('TestDirective should add tooltip class to parent element', () => {
